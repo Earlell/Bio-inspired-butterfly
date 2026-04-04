@@ -217,6 +217,8 @@ int main(void)
 	HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_3);
 	HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_4);
 	
+	
+	
 	HAL_Delay(1000);		//等待上电完成
 	MX_USART1_UART_Init();	//开启接收机串口
 	ELRS_Init();			//接收机初始化
@@ -229,10 +231,16 @@ int main(void)
 
   while (1)
   {
-	
+//	  // ✅ 启动 PWM（关键！）
+//  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
+//  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
+
+//  // ✅ 设置占空比（50%）
+//  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, 19999);
+////  __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 19999);
     /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
+		
 	StarAndGetResult();
 	uint32_t now   = HAL_GetTick();
 	(void)now;
